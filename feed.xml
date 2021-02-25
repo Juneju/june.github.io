@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="/blog/" rel="alternate" type="text/html" /><updated>2021-02-25T05:29:41+00:00</updated><id>/blog/feed.xml</id><title type="html">June’s blog</title><subtitle>Hat man sein Warum des Lebens, so verträgt man sich fast mit jedem Wie.</subtitle><author><name>June</name></author><entry><title type="html">博客搭建：Jekyll + Github</title><link href="/blog/posts/jekyll/2021/02/23/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA-Jekyll-+-Github.html" rel="alternate" type="text/html" title="博客搭建：Jekyll + Github" /><published>2021-02-23T10:05:18+00:00</published><updated>2021-02-23T10:05:18+00:00</updated><id>/blog/posts/jekyll/2021/02/23/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA:Jekyll-+-Github</id><content type="html" xml:base="/blog/posts/jekyll/2021/02/23/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA-Jekyll-+-Github.html">&lt;h2 id=&quot;jekyll&quot;&gt;Jekyll&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Jekyll 是静态网站生成工具。Github Pages可以免费部署Jekyll生成的网站。&lt;/p&gt;
+
+&lt;p&gt;本博客是在jekyll minima theme的基础上改造页面样式，增加一些功能点。所以需要在本地环境安装调试Jekyll项目。&lt;/p&gt;
+
+&lt;h3 id=&quot;安装&quot;&gt;安装&lt;/h3&gt;
+
+&lt;h4 id=&quot;依赖环境&quot;&gt;依赖环境&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ruby version 2.4.0 or higher&lt;/li&gt;
+  &lt;li&gt;RubyGems&lt;/li&gt;
+  &lt;li&gt;GCC and Make&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;gem-安装包&quot;&gt;gem 安装包&lt;/h4&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;jekyll bundler
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;创建项目&quot;&gt;创建项目&lt;/h4&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll new blog
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;启动项目&quot;&gt;启动项目&lt;/h4&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;jekyll serve
+&lt;span class=&quot;c&quot;&gt;#配置启动端口&lt;/span&gt;
+bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;jekyll serve &lt;span class=&quot;nt&quot;&gt;--port&lt;/span&gt; PORT
+&lt;span class=&quot;c&quot;&gt;#配置启动主机&lt;/span&gt;
+bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;jekyll serve &lt;span class=&quot;nt&quot;&gt;--host&lt;/span&gt; HOSTNAME
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;访问项目&quot;&gt;访问项目&lt;/h4&gt;
+
+&lt;p&gt;本地项目默认地址是：http://localhost:4000&lt;/p&gt;
+
+&lt;p&gt;注：默认ruby gems配置的地址有时候下载速度比较慢，可以改用镜像：https://mirrors.tuna.tsinghua.edu.cn/rubygems/&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;项目结构&quot;&gt;项目结构&lt;/h3&gt;
+
+&lt;h4 id=&quot;默认主题minima路径&quot;&gt;默认主题minima路径&lt;/h4&gt;
+
+&lt;p&gt;在项目下(Gemfile所在路径)运行：&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bundle info &lt;span class=&quot;nt&quot;&gt;--path&lt;/span&gt; minima
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;主题结构&quot;&gt;主题结构&lt;/h4&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;├─assets
+├─_includes
+├─_layouts
+└─_sass 1. _layouts
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;存放页面布局文件。其他文件通过frontMatter声明来使用对应的布局文件。如果需要自定义布局，可以将文件放在此目录下。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   ├── default.html：所有layouts的基础，通过和 frontMatter声明（layout:default）
+   ├── home.html ：index.md或index.html的html布局
+   ├── page.html ：除了posts，其余包含frontMatter:page的布局
+   └── post.html : 发布的文章的页面布局
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;_includes&lt;/p&gt;
+
+    &lt;p&gt;存放能够被_layouts注入的文件。&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;├── footer.html
+├── google-analytics.html
+├── head.html
+├── header.html
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;注入方式：&lt;/p&gt;
+    &lt;div class=&quot;language-django highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;header.html&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;%}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;_sass&lt;/p&gt;
+
+    &lt;p&gt;存放样式.scss文件。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;assets&lt;/p&gt;
+
+    &lt;p&gt;存放资源文件。main.scss在此文件夹中，在_layouts/default.html 通过 _includes/head.html中引入。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;项目结构-1&quot;&gt;项目结构&lt;/h4&gt;
+
+&lt;p&gt;除了包含上述的主题结构外，还有以下：&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;├─_site
+├─_posts
+├─_plugins
+├─_config.yml
+└─...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;_site&lt;/p&gt;
+
+    &lt;p&gt;项目运行之后，生成的静态网页。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;_posts&lt;/p&gt;
+
+    &lt;p&gt;需要发布的文章在这里面。&lt;/p&gt;
+
+    &lt;p&gt;Jekyll规定了post文件命名的格式如下：&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;YEAR-MONTH-DAY-title.MARKUP
+​	YEAR：年份，四位数字   
+​	MONTH：月份，二位数字  
+​	DAY：天，二位数字  
+​	MARKUP：文件格式，如md  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;如果想要给文章添加category，其中一种方法是可以通过文件夹的名称。如下给文章&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mysql.md&lt;/code&gt;添加了&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;database&lt;/code&gt;的分类：&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;├─posts
+	├─database
+		├─_posts
+			├─mysql.md
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;_plugins&lt;/p&gt;
+
+    &lt;p&gt;用ruby语言编写的插件。具体参考：https://jekyllrb.com/docs/plugins/your-first-plugin/&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;_config.yml&lt;/p&gt;
+
+    &lt;p&gt;配置文件存放项目的全局配置，这些配置很少被修改。对于经常需要改变的变量，使用data files。&lt;/p&gt;
+
+    &lt;p&gt;在Liquid模板中可以通过&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{{ site.xxx }}&lt;/code&gt;来获取对应的值。&lt;/p&gt;
+
+    &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;front-matter&quot;&gt;Front Matter&lt;/h3&gt;
+
+&lt;p&gt;Front Matter 是在文件开头，介于三段虚线之间的YAML片段。&lt;/p&gt;
+
+&lt;p&gt;例子：&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;default&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;标题&lt;/span&gt;
+&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;layout 用于页面嵌入布局中（通过 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{{content}}&lt;/code&gt; ）。&lt;/p&gt;
+
+  &lt;p&gt;title是页面定义的变量，可以在该页面的Liquid模板中通过&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{{ page.title }}&lt;/code&gt;使用。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;jekyll-liquid&quot;&gt;Jekyll Liquid&lt;/h3&gt;
+
+&lt;p&gt;Jekyll 使用 &lt;a href=&quot;https://shopify.github.io/liquid/&quot;&gt;Liquid&lt;/a&gt; 模板语言处理模板。&lt;/p&gt;
+
+&lt;p&gt;语言基本上和一般模板语言相同，如变量取值&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{{ object }}&lt;/code&gt;  , 条件判断&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{% if condition %} {% endif %}  &lt;/code&gt; 等等。具体可以参考官方文档。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;github-部署&quot;&gt;GitHub 部署&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;用GitHub pages部署Jekyll，需要新建一个仓库，然后在仓库的settings中配置GitHub Pages。具体的操作可以参考网上的教程。&lt;/p&gt;
+
+&lt;p&gt;想特别提到的一点是：如果使用了自己编写的插件，上传到了_plugins文件夹下，但是部署到线上环境会不生效。原因是Github自动部署的保护机制。所以如果想部署上去，就需要使用Github Actions。具体可以参考：https://jekyllrb.com/docs/continuous-integration/github-actions/#workspace-setup&lt;/p&gt;
+
+&lt;p&gt;下面放一下本项目配置的gh-pages.yml：&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Build and deploy Jekyll site to GitHub Pages&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;branches&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;main&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;github-pages&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;runs-on&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ubuntu-latest&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;actions/checkout@v2&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;helaili/jekyll-action@2.0.5&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;JEKYLL_PAT&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;${{ secrets.JEKYLL_PAT }}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;参考&quot;&gt;参考&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;https://jekyllrb.com/docs/&lt;/p&gt;
+
+&lt;p&gt;https://jekyllrb.com/docs/continuous-integration/github-actions/&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;其他&quot;&gt;其他&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;这篇博客的搭建主要耗时不到一个月，抽出了几天，这几天抽出了几个小时，实际耗时比较短，所以总体搭建下来感觉还是挺简单的。如果不修改Jekyll默认主题，可能只需要几个小时。&lt;/p&gt;
+
+&lt;p&gt;最后，既然自己已经搭出来，希望自己能坚持做下去。&lt;/p&gt;</content><author><name>June</name></author><category term="posts" /><category term="jekyll" /><summary type="html">Jekyll</summary></entry></feed>
